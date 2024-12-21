@@ -11,7 +11,7 @@ function App() {
     <div className='align-left'>
       <Header />
       <Hero />
-      <About />
+      {/* <About /> */}
       <Projects />
       <Experience />
       <Skills />
