@@ -66,7 +66,7 @@ export const experiences = [
     {
         title: 'MERN Stack Developer | TL',
         company: 'Business Optima',
-        duration: 'May 2024 - Present',
+        duration: 'May 2024 - December 2024',
         description: 'Developing and maintaining web applications with React, Node.js, and PostgreSQL. Implemented new features and optimized performance for existing platforms.',
     },
     {
