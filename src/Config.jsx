@@ -64,7 +64,7 @@ export const projects = [
 
 export const experiences = [
     {
-        title: 'MERN Stack Developer | TL',
+        title: 'MERN Stack Developer',
         company: 'Business Optima',
         duration: 'May 2024 - December 2024',
         description: 'Developing and maintaining web applications with React, Node.js, and PostgreSQL. Implemented new features and optimized performance for existing platforms.',
@@ -76,10 +76,10 @@ export const experiences = [
         description: 'Focused on creating responsive and dynamic user interfaces using React and Material-UI. Collaborated with designers and backend developers to deliver high-quality solutions.',
     },
     {
-        title: 'Software Developer',
+        title: 'MERN Stack Developer',
         company: 'Speedum Technologies',
         duration: 'June 2021 - November 2023',
-        description: 'Built and maintained custom CMS platforms using PHP and MySQL. Improved site performance and ensured scalability for various clients.',
+        description: 'Built and maintained custom healthcare platforms using ReactJS and NodeJS. Improved site performance and ensured scalability for various clients.',
     },
 ];
 
@@ -90,8 +90,8 @@ export const skills = [
     { name: 'MongoDB', proficiency: 50 },
     { name: 'MySQL', proficiency: 80 },
     { name: 'HTML & CSS', proficiency: 95 },
-    { name: 'PHP', proficiency: 60 },
-    { name: 'JQuery', proficiency: 50 },
+    // { name: 'PHP', proficiency: 60 },
+    // { name: 'JQuery', proficiency: 50 },
     { name: 'WordPress', proficiency: 70 },
     { name: 'Magento', proficiency: 60 },
     { name: 'GitHub', proficiency: 90 },

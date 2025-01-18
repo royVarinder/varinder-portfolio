@@ -68,7 +68,7 @@ export function Hero() {
                             Hi, I'm Varinder Singh
                         </Typography>
                         <Typography variant="h5" component="p" gutterBottom>
-                            Full Stack Developer | Creative Designer | Tech Enthusiast
+                            MERN Stack Developer | Creative Designer | Tech Enthusiast
                         </Typography>
                         <Typography variant="body1" paragraph>
                             I craft modern, responsive websites and applications that bring your ideas to life. Let’s build something amazing together.
@@ -253,7 +253,7 @@ export function Skills() {
     return (
         <Box
             sx={{
-                // py: 8,
+                py: 8,
                 backgroundColor: 'background.default',
                 color: 'text.primary',
             }}
