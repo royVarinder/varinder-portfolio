@@ -158,10 +158,10 @@ export function Projects() {
     return (
         <Box sx={{ py: 3, backgroundColor: 'background.default' }} id="projects">
             <Container maxWidth="lg">
-                <Typography variant="h4" component="h2" align="center" gutterBottom>
+                <Typography variant="h4" color='black' component="h2" align="center" gutterBottom>
                     Projects
                 </Typography>
-                <Typography variant="body1" align="center" paragraph>
+                <Typography variant="body1" color='black' align="center" paragraph>
                     Here are some of the projects I've worked on recently. Click on a project to learn more.
                 </Typography>
 
