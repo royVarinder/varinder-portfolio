@@ -7,8 +7,14 @@ import tecdemyLogo from "./assets/tecdemy.png"
 import ourFairFieldLogo from "./assets/ourfairfieldLogo.png"
 import businessOptimaLogo from "./assets/businessOptimaLogo.png"
 import profileImage from "./assets/profile2.jpg"
+import { FaReact, FaNodeJs, FaWordpress, FaGithub, FaBitbucket, FaBootstrap, FaHtml5, FaMagento } from "react-icons/fa"
+import { SiMongodb, SiMysql, SiPostman } from "react-icons/si"
 
 export const PROFILE_IMAGE = profileImage;
+
+export const SUMMARY = "Experienced Full Stack Developer with 5+ years of hands-on experience in building scalable web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js). Strong background in frontend and backend development, REST APIs, database design, and deployment. Proven ability to lead small teams, deliver client projects, and work with international clients.";
+
+export const OBJECTIVE = "I'm currently looking to join a cross-functional team that values impactful software solutions, where I can grow into a leadership role while continuously learning.";
 
 export const projects = [
     {
@@ -64,23 +70,43 @@ export const projects = [
 
 export const experiences = [
     {
-        title: 'MERN Stack Developer',
+        title: 'SDE-2 (Full Stack Developer)',
+        company: 'UnleashX',
+        duration: 'Jan 2025 - Present',
+        description: 'Building an AI-based web app with AI Agent and automation workflows.',
+    },
+    {
+        title: 'Full Stack Developer / Team Lead',
         company: 'Business Optima',
-        duration: 'May 2024 - December 2024',
-        description: 'Developing and maintaining web applications with React, Node.js, and PostgreSQL. Implemented new features and optimized performance for existing platforms.',
+        duration: '2024 - 2025',
+        description: 'Led a small team building Tecdemy, an education platform.',
     },
     {
         title: 'MERN Stack Developer',
         company: 'NetQuall Technologies',
-        duration: 'November 2023 - May 2024',
-        description: 'Focused on creating responsive and dynamic user interfaces using React and Material-UI. Collaborated with designers and backend developers to deliver high-quality solutions.',
+        duration: '2023 - 2025',
+        description: 'Built modules for BirdDog, a CRM application.',
     },
     {
-        title: 'MERN Stack Developer',
+        title: 'React Developer',
         company: 'Speedum Technologies',
-        duration: 'June 2021 - November 2023',
-        description: 'Built and maintained custom healthcare platforms using ReactJS and NodeJS. Improved site performance and ensured scalability for various clients.',
+        duration: 'June 2021 - Oct 2023',
+        description: 'Built dashboards and admin panels for HealthVault, a healthcare product.',
     },
+];
+
+export const techStack = [
+    { name: 'ReactJS', Icon: FaReact },
+    { name: 'NodeJS', Icon: FaNodeJs },
+    { name: 'MongoDB', Icon: SiMongodb },
+    { name: 'MySQL', Icon: SiMysql },
+    { name: 'HTML & CSS', Icon: FaHtml5 },
+    { name: 'WordPress', Icon: FaWordpress },
+    { name: 'Magento', Icon: FaMagento },
+    { name: 'GitHub', Icon: FaGithub },
+    { name: 'Bitbucket', Icon: FaBitbucket },
+    { name: 'Postman', Icon: SiPostman },
+    { name: 'Bootstrap', Icon: FaBootstrap },
 ];
 
 
