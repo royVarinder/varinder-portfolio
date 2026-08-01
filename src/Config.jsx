@@ -1,4 +1,6 @@
 import safePharmacyLogo from "./assets/safePharmacy.svg"
+import unleashxLogo from "./assets/appLogoSVG.79310300.svg"
+
 import jyotiDham from "./assets/jyotidham.png"
 import DentistreeLogo from "./assets/dentistree.png"
 import nightButterFliesLogo from "./assets/nightButtonflieslogo.png"
@@ -17,6 +19,12 @@ export const SUMMARY = "Experienced Full Stack Developer with 5+ years of hands-
 export const OBJECTIVE = "I'm currently looking to join a cross-functional team that values impactful software solutions, where I can grow into a leadership role while continuously learning.";
 
 export const projects = [
+    {
+        title: 'UnleashX',
+        // description: 'E-Commerce website for medicines',
+        image: unleashxLogo,
+        link: 'https://unleashx.ai/',
+    },
     {
         title: 'SafePharmacy',
         // description: 'E-Commerce website for medicines',

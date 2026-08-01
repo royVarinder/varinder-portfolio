@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, Container, Typography, Grid, Button, IconButton } from '@mui/material';
+import { Box, Container, Typography, Button, IconButton, useMediaQuery, useTheme } from '@mui/material';
 import { styled } from '@mui/system';
 import { keyframes } from '@emotion/react';
 import { GitHub, LinkedIn, Email, WhatsApp, Instagram } from '@mui/icons-material';
@@ -25,7 +25,7 @@ const GlowSection = styled(Box)({
     color: COLORS.text,
 });
 
-const GlowCard = styled(Box)({
+const GlowCard = styled(Box)(({ theme }) => ({
     background: COLORS.panel,
     border: `1px solid ${COLORS.panelBorder}`,
     borderRadius: '16px',
@@ -37,7 +37,10 @@ const GlowCard = styled(Box)({
         transform: 'translateY(-4px)',
         boxShadow: `0 8px 30px rgba(168,85,247,0.25)`,
     },
-});
+    [theme.breakpoints.down('sm')]: {
+        padding: '16px',
+    },
+}));
 
 // ---------------------------------------------------------------------------
 // Header
@@ -56,11 +59,12 @@ export function NewHeader() {
             }}
         >
             <Container maxWidth="lg">
-                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', py: 1.5 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', py: 1.5, gap: 1 }}>
                     <Typography
                         variant="h6"
                         sx={{
                             fontWeight: 700,
+                            fontSize: { xs: '1.05rem', sm: '1.25rem' },
                             background: `linear-gradient(90deg, ${COLORS.text}, ${COLORS.accentSoft})`,
                             WebkitBackgroundClip: 'text',
                             WebkitTextFillColor: 'transparent',
@@ -76,7 +80,10 @@ export function NewHeader() {
                             color: '#fff',
                             textTransform: 'none',
                             borderRadius: '999px',
-                            px: 3,
+                            px: { xs: 2, sm: 3 },
+                            fontSize: { xs: '0.8rem', sm: '0.875rem' },
+                            whiteSpace: 'nowrap',
+                            flexShrink: 0,
                         }}
                     >
                         Hire Me
@@ -140,13 +147,22 @@ export function NewHero() {
                         fontWeight: 700,
                         mb: 1,
                         lineHeight: 1.2,
+                        fontSize: { xs: '1.75rem', sm: '2.25rem', md: '3rem' },
                     }}
                 >
                     A Full Stack Developer who builds{' '}
                     <Box component="span" sx={{ color: COLORS.accent }}>impactful</Box> software.
                 </Typography>
 
-                <Typography variant="h5" sx={{ color: COLORS.textMuted, mb: 3, minHeight: '2.2em' }}>
+                <Typography
+                    variant="h5"
+                    sx={{
+                        color: COLORS.textMuted,
+                        mb: 3,
+                        minHeight: { xs: '3.2em', sm: '2.2em' },
+                        fontSize: { xs: '1.1rem', sm: '1.35rem', md: '1.5rem' },
+                    }}
+                >
                     I&apos;m a {typed}
                     <Box component="span" sx={{ animation: `${blink} 1s step-end infinite`, ml: 0.5 }}>|</Box>
                 </Typography>
@@ -191,9 +207,15 @@ export function NewExperience() {
                     Work Experience
                 </Typography>
 
-                <Grid container spacing={3}>
+                <Box
+                    sx={{
+                        display: 'grid',
+                        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+                        gap: 3,
+                    }}
+                >
                     {experiences.map((experience, index) => (
-                        <Grid item xs={12} md={6} key={index}>
+                        <Box key={index}>
                             <GlowCard>
                                 <Typography variant="h6" sx={{ fontWeight: 700 }}>
                                     {experience.title}
@@ -205,9 +227,9 @@ export function NewExperience() {
                                     {experience.description}
                                 </Typography>
                             </GlowCard>
-                        </Grid>
+                        </Box>
                     ))}
-                </Grid>
+                </Box>
             </Container>
         </GlowSection>
     );
@@ -232,11 +254,20 @@ const pulse = keyframes`
   50% { box-shadow: 0 0 55px rgba(168,85,247,0.85); }
 `;
 
-const ORBIT_SIZE = 340;
-const ORBIT_RADIUS = 155;
 const ORBIT_DURATION = '28s';
 
+const ORBIT_PRESETS = {
+    xs: { size: 220, radius: 85, icon: 34, badge: 64, badgeFont: '1.1rem', iconGlyph: 16 },
+    sm: { size: 280, radius: 115, icon: 38, badge: 74, badgeFont: '1.25rem', iconGlyph: 18 },
+    md: { size: 340, radius: 155, icon: 42, badge: 84, badgeFont: '1.4rem', iconGlyph: 20 },
+};
+
 export function NewTechOrbit() {
+    const theme = useTheme();
+    const isXs = useMediaQuery(theme.breakpoints.down('sm'));
+    const isSm = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+    const preset = isXs ? ORBIT_PRESETS.xs : isSm ? ORBIT_PRESETS.sm : ORBIT_PRESETS.md;
+
     return (
         <GlowSection sx={{ py: { xs: 8, md: 12 } }}>
             <Container maxWidth="md">
@@ -247,8 +278,8 @@ export function NewTechOrbit() {
                 <Box
                     sx={{
                         position: 'relative',
-                        width: ORBIT_SIZE,
-                        height: ORBIT_SIZE,
+                        width: preset.size,
+                        height: preset.size,
                         mx: 'auto',
                         mt: 6,
                     }}
@@ -260,8 +291,8 @@ export function NewTechOrbit() {
                             top: '50%',
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
-                            width: 84,
-                            height: 84,
+                            width: preset.badge,
+                            height: preset.badge,
                             borderRadius: '50%',
                             display: 'flex',
                             alignItems: 'center',
@@ -271,7 +302,7 @@ export function NewTechOrbit() {
                             zIndex: 2,
                         }}
                     >
-                        <Typography sx={{ color: '#fff', fontWeight: 800, fontSize: '1.4rem' }}>VS</Typography>
+                        <Typography sx={{ color: '#fff', fontWeight: 800, fontSize: preset.badgeFont }}>VS</Typography>
                     </Box>
 
                     {/* orbit ring, decorative */}
@@ -302,13 +333,13 @@ export function NewTechOrbit() {
                                         position: 'absolute',
                                         top: '50%',
                                         left: '50%',
-                                        transform: `translate(-50%, -50%) rotate(${angle}deg) translate(${ORBIT_RADIUS}px) rotate(${-angle}deg)`,
+                                        transform: `translate(-50%, -50%) rotate(${angle}deg) translate(${preset.radius}px) rotate(${-angle}deg)`,
                                     }}
                                 >
                                     <Box
                                         sx={{
-                                            width: 42,
-                                            height: 42,
+                                            width: preset.icon,
+                                            height: preset.icon,
                                             borderRadius: '50%',
                                             display: 'flex',
                                             alignItems: 'center',
@@ -318,7 +349,7 @@ export function NewTechOrbit() {
                                             animation: `${counterRotate} ${ORBIT_DURATION} linear infinite`,
                                         }}
                                     >
-                                        <Icon size={20} color={COLORS.accentSoft} />
+                                        <Icon size={preset.iconGlyph} color={COLORS.accentSoft} />
                                     </Box>
                                 </Box>
                             );
@@ -342,9 +373,15 @@ export function NewProjects() {
                     Featured Projects
                 </Typography>
 
-                <Grid container spacing={3}>
+                <Box
+                    sx={{
+                        display: 'grid',
+                        gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' },
+                        gap: 3,
+                    }}
+                >
                     {projects.map((project, index) => (
-                        <Grid item xs={12} sm={6} md={4} key={index}>
+                        <Box key={index}>
                             <GlowCard sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                                 <Box
                                     component="img"
@@ -371,9 +408,9 @@ export function NewProjects() {
                                     View Project
                                 </Button>
                             </GlowCard>
-                        </Grid>
+                        </Box>
                     ))}
-                </Grid>
+                </Box>
             </Container>
         </GlowSection>
     );
