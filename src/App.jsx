@@ -1,8 +1,10 @@
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import { NewHeader, NewHero, NewExperience, NewTechOrbit, NewProjects, NewContact, NewFooter } from './Components/NewElements'
+import PrivacyPolicy from './Components/PrivacyPolicy'
 
-function App() {
-  return <>
+function Home() {
+  return (
     <div className='align-left'>
       <NewHeader />
       <NewHero />
@@ -12,7 +14,16 @@ function App() {
       <NewContact />
       <NewFooter />
     </div>
-  </>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+    </Routes>
+  )
 }
 
 export default App
