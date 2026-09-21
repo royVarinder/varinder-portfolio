@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Box, Container, Typography, Button, IconButton, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Container, Typography, Button, IconButton } from '@mui/material';
 import { styled } from '@mui/system';
 import { keyframes } from '@emotion/react';
 import { GitHub, LinkedIn, Email, WhatsApp, Instagram } from '@mui/icons-material';
-import { SUMMARY, OBJECTIVE, experiences, projects, techStack } from '../Config';
+import { SUMMARY, OBJECTIVE, experiences, projects, techStack, skillCategories } from '../Config';
 
 // ---------------------------------------------------------------------------
 // Shared palette / building blocks for the dark "glow" theme
@@ -98,7 +98,7 @@ export function NewHeader() {
 // Hero (typed headline)
 // ---------------------------------------------------------------------------
 
-const ROLES = ['Full Stack Developer.', 'MERN Stack Developer.', 'Team Lead.'];
+const ROLES = ['Frontend Developer.', 'Full Stack Developer.', 'MERN Stack Developer.', 'Team Lead.'];
 
 const blink = keyframes`
   0%, 100% { opacity: 1; }
@@ -150,7 +150,7 @@ export function NewHero() {
                         fontSize: { xs: '1.75rem', sm: '2.25rem', md: '3rem' },
                     }}
                 >
-                    A Full Stack Developer who builds{' '}
+                    A Frontend / Full Stack Developer who builds{' '}
                     <Box component="span" sx={{ color: COLORS.accent }}>impactful</Box> software.
                 </Typography>
 
@@ -167,10 +167,10 @@ export function NewHero() {
                     <Box component="span" sx={{ animation: `${blink} 1s step-end infinite`, ml: 0.5 }}>|</Box>
                 </Typography>
 
-                <Typography sx={{ color: COLORS.textMuted, mb: 1 }}>
+                {/* <Typography sx={{ color: COLORS.textMuted, mb: 1 }}>
                     Currently, I&apos;m a Full Stack Developer at{' '}
                     <Box component="span" sx={{ color: COLORS.accentSoft, fontWeight: 600 }}>UnleashX</Box>.
-                </Typography>
+                </Typography> */}
 
                 <Typography sx={{ color: COLORS.textMuted, maxWidth: 640, mb: 4 }}>
                     {SUMMARY}
@@ -236,38 +236,10 @@ export function NewExperience() {
 }
 
 // ---------------------------------------------------------------------------
-// Tech Orbit
+// Tech Stack
 // ---------------------------------------------------------------------------
 
-const orbitRotate = keyframes`
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-`;
-
-const counterRotate = keyframes`
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
-`;
-
-const pulse = keyframes`
-  0%, 100% { box-shadow: 0 0 30px rgba(168,85,247,0.5); }
-  50% { box-shadow: 0 0 55px rgba(168,85,247,0.85); }
-`;
-
-const ORBIT_DURATION = '28s';
-
-const ORBIT_PRESETS = {
-    xs: { size: 220, radius: 85, icon: 34, badge: 64, badgeFont: '1.1rem', iconGlyph: 16 },
-    sm: { size: 280, radius: 115, icon: 38, badge: 74, badgeFont: '1.25rem', iconGlyph: 18 },
-    md: { size: 340, radius: 155, icon: 42, badge: 84, badgeFont: '1.4rem', iconGlyph: 20 },
-};
-
 export function NewTechOrbit() {
-    const theme = useTheme();
-    const isXs = useMediaQuery(theme.breakpoints.down('sm'));
-    const isSm = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-    const preset = isXs ? ORBIT_PRESETS.xs : isSm ? ORBIT_PRESETS.sm : ORBIT_PRESETS.md;
-
     return (
         <GlowSection sx={{ py: { xs: 8, md: 12 } }}>
             <Container maxWidth="md">
@@ -275,86 +247,109 @@ export function NewTechOrbit() {
                     {OBJECTIVE}
                 </Typography>
 
+                <Typography align="center" variant="h4" sx={{ fontWeight: 700, mt: 1, mb: { xs: 4, md: 6 } }}>
+                    Tech Stack
+                </Typography>
+
                 <Box
                     sx={{
-                        position: 'relative',
-                        width: preset.size,
-                        height: preset.size,
-                        mx: 'auto',
-                        mt: 6,
+                        display: 'grid',
+                        gridTemplateColumns: {
+                            xs: 'repeat(2, 1fr)',
+                            sm: 'repeat(3, 1fr)',
+                            md: 'repeat(4, 1fr)',
+                        },
+                        gap: { xs: 2, sm: 2.5, md: 3 },
                     }}
                 >
-                    {/* central glowing badge */}
-                    <Box
-                        sx={{
-                            position: 'absolute',
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            width: preset.badge,
-                            height: preset.badge,
-                            borderRadius: '50%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            background: `linear-gradient(135deg, ${COLORS.accent}, ${COLORS.accentSoft})`,
-                            animation: `${pulse} 3s ease-in-out infinite`,
-                            zIndex: 2,
-                        }}
-                    >
-                        <Typography sx={{ color: '#fff', fontWeight: 800, fontSize: preset.badgeFont }}>VS</Typography>
-                    </Box>
+                    {techStack.map(({ name, Icon }) => (
+                        <Box
+                            key={name}
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                gap: 1.25,
+                                py: { xs: 3, sm: 3.5 },
+                                px: 2,
+                                borderRadius: '16px',
+                                background: COLORS.panel,
+                                border: `1px solid ${COLORS.panelBorder}`,
+                                backdropFilter: 'blur(6px)',
+                                textAlign: 'center',
+                                transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease',
+                                '&:hover': {
+                                    transform: 'translateY(-4px)',
+                                    boxShadow: `0 8px 30px rgba(168,85,247,0.25)`,
+                                    borderColor: COLORS.accent,
+                                },
+                            }}
+                        >
+                            <Icon size={32} color={COLORS.accentSoft} />
+                            <Typography sx={{ color: COLORS.text, fontWeight: 600, fontSize: '0.9rem' }}>
+                                {name}
+                            </Typography>
+                        </Box>
+                    ))}
+                </Box>
+            </Container>
+        </GlowSection>
+    );
+}
 
-                    {/* orbit ring, decorative */}
-                    <Box
-                        sx={{
-                            position: 'absolute',
-                            inset: 0,
-                            borderRadius: '50%',
-                            border: `1px dashed ${COLORS.panelBorder}`,
-                        }}
-                    />
+// ---------------------------------------------------------------------------
+// Skills
+// ---------------------------------------------------------------------------
 
-                    {/* rotating icon ring */}
-                    <Box
-                        sx={{
-                            position: 'absolute',
-                            inset: 0,
-                            animation: `${orbitRotate} ${ORBIT_DURATION} linear infinite`,
-                        }}
-                    >
-                        {techStack.map(({ name, Icon }, index) => {
-                            const angle = (360 / techStack.length) * index;
-                            return (
-                                <Box
-                                    key={name}
-                                    title={name}
-                                    sx={{
-                                        position: 'absolute',
-                                        top: '50%',
-                                        left: '50%',
-                                        transform: `translate(-50%, -50%) rotate(${angle}deg) translate(${preset.radius}px) rotate(${-angle}deg)`,
-                                    }}
-                                >
+export function NewSkills() {
+    return (
+        <GlowSection sx={{ py: { xs: 6, md: 10 } }} id="skills">
+            <Container maxWidth="lg">
+                <Typography variant="h4" sx={{ fontWeight: 700, mb: 4 }}>
+                    Skills
+                </Typography>
+
+                <Box
+                    sx={{
+                        display: 'grid',
+                        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+                        gap: 3,
+                    }}
+                >
+                    {skillCategories.map(({ category, items }) => (
+                        <GlowCard key={category}>
+                            <Typography
+                                variant="subtitle1"
+                                sx={{ fontWeight: 700, color: COLORS.accentSoft, mb: 2 }}
+                            >
+                                {category}
+                            </Typography>
+
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.25 }}>
+                                {items.map(({ name, Icon }) => (
                                     <Box
+                                        key={name}
                                         sx={{
-                                            width: preset.icon,
-                                            height: preset.icon,
-                                            borderRadius: '50%',
                                             display: 'flex',
                                             alignItems: 'center',
-                                            justifyContent: 'center',
-                                            background: COLORS.panel,
+                                            gap: 0.75,
+                                            py: 0.75,
+                                            px: 1.5,
+                                            borderRadius: '999px',
+                                            background: 'rgba(168,85,247,0.08)',
                                             border: `1px solid ${COLORS.panelBorder}`,
-                                            animation: `${counterRotate} ${ORBIT_DURATION} linear infinite`,
                                         }}
                                     >
-                                        <Icon size={preset.iconGlyph} color={COLORS.accentSoft} />
+                                        {Icon && <Icon size={15} color={COLORS.accentSoft} />}
+                                        <Typography sx={{ color: COLORS.text, fontSize: '0.85rem' }}>
+                                            {name}
+                                        </Typography>
                                     </Box>
-                                </Box>
-                            );
-                        })}
-                    </Box>
+                                ))}
+                            </Box>
+                        </GlowCard>
+                    ))}
                 </Box>
             </Container>
         </GlowSection>
@@ -392,7 +387,7 @@ export function NewProjects() {
                                 <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
                                     {project.title}
                                 </Typography>
-                                <Button
+                                {project.link && <Button
                                     href={project.link}
                                     target="_blank"
                                     variant="outlined"
@@ -406,7 +401,7 @@ export function NewProjects() {
                                     }}
                                 >
                                     View Project
-                                </Button>
+                                </Button>}
                             </GlowCard>
                         </Box>
                     ))}

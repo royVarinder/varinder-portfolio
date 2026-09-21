@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import { NewHeader, NewHero, NewExperience, NewTechOrbit, NewProjects, NewContact, NewFooter } from './Components/NewElements'
+import { NewHeader, NewHero, NewExperience, NewTechOrbit, NewSkills, NewProjects, NewContact, NewFooter } from './Components/NewElements'
 import PrivacyPolicy from './Components/PrivacyPolicy'
 
 function Home() {
@@ -10,6 +10,7 @@ function Home() {
       <NewHero />
       <NewExperience />
       <NewTechOrbit />
+      <NewSkills />
       <NewProjects />
       <NewContact />
       <NewFooter />
