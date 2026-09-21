@@ -412,6 +412,89 @@ export function NewProjects() {
 }
 
 // ---------------------------------------------------------------------------
+// Sample Work
+// ---------------------------------------------------------------------------
+
+const SAMPLES = [
+    {
+        category: 'Jewellery & luxury retail',
+        title: 'Solene',
+        description: 'A fine-jewellery storefront concept — full-width, lazy-loaded, with a working cart and live search.',
+        path: '/jewellery-market',
+        swatch: 'linear-gradient(135deg, #24422F 0%, #12211A 55%, #B8925A 100%)',
+    },
+    {
+        category: 'Agriculture & industrial tools',
+        title: 'Furrow Supply Co.',
+        description: 'A farm equipment catalog concept — tractors, hand tools and irrigation gear with the same storefront pattern.',
+        path: '/agro-industries',
+        swatch: 'linear-gradient(135deg, #4B5328 0%, #211A12 55%, #B85C2E 100%)',
+    },
+];
+
+export function NewSamples() {
+    return (
+        <GlowSection sx={{ py: { xs: 6, md: 10 } }} id="samples">
+            <Container maxWidth="lg">
+                <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
+                    Sample Work
+                </Typography>
+                <Typography sx={{ color: COLORS.textMuted, mb: 4, maxWidth: 640 }}>
+                    Concept storefronts built to show how I approach a client brief — full frontend builds, no backend attached.
+                </Typography>
+
+                <Box
+                    sx={{
+                        display: 'grid',
+                        gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+                        gap: 3,
+                    }}
+                >
+                    {SAMPLES.map((sample) => (
+                        <GlowCard key={sample.path} sx={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                            <Box sx={{ height: 96, background: sample.swatch, borderRadius: '10px', mb: 2.5 }} />
+                            <Typography
+                                sx={{
+                                    color: COLORS.accentSoft,
+                                    fontSize: '0.78rem',
+                                    fontWeight: 600,
+                                    mb: 1,
+                                }}
+                            >
+                                {sample.category}
+                            </Typography>
+                            <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
+                                {sample.title}
+                            </Typography>
+                            <Typography sx={{ color: COLORS.textMuted, fontSize: '0.9rem', mb: 3, flexGrow: 1 }}>
+                                {sample.description}
+                            </Typography>
+                            <Button
+                                component="a"
+                                href={sample.path}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                variant="outlined"
+                                sx={{
+                                    alignSelf: 'flex-start',
+                                    borderRadius: '999px',
+                                    textTransform: 'none',
+                                    color: COLORS.accentSoft,
+                                    borderColor: COLORS.accent,
+                                    '&:hover': { borderColor: COLORS.accentSoft, background: 'rgba(168,85,247,0.1)' },
+                                }}
+                            >
+                                View sample
+                            </Button>
+                        </GlowCard>
+                    ))}
+                </Box>
+            </Container>
+        </GlowSection>
+    );
+}
+
+// ---------------------------------------------------------------------------
 // Contact
 // ---------------------------------------------------------------------------
 
