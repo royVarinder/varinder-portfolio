@@ -11,8 +11,8 @@ import businessOptimaLogo from "./assets/businessOptimaLogo.png"
 import primefxlogo from "./assets/primeLogo.png"
 import profileImage from "./assets/profile2.jpg"
 import { FaReact, FaNodeJs, FaWordpress, FaGithub, FaBitbucket, FaBootstrap, FaHtml5, FaCss3Alt, FaAngular, FaVuejs, FaLinux, FaGitAlt, FaAws, FaDatabase, FaLock, FaPython } from "react-icons/fa"
-import { SiMongodb, SiMysql, SiPostman, SiJavascript, SiNextdotjs, SiChakraui, SiExpress, SiPostgresql, SiVercel, SiGooglecloud, SiRedis } from "react-icons/si"
-import { TbBrandReactNative, TbWebhook } from "react-icons/tb"
+import { SiMongodb, SiMysql, SiPostman, SiJavascript, SiNextdotjs, SiChakraui, SiExpress, SiPostgresql, SiVercel, SiGooglecloud, SiRedis, SiGraphql, SiMicrosoftazure } from "react-icons/si"
+import { TbBrandReactNative, TbWebhook, TbKey } from "react-icons/tb"
 
 export const PROFILE_IMAGE = profileImage;
 
@@ -116,9 +116,11 @@ export const techStack = [
     { name: 'NodeJS', Icon: FaNodeJs },
     { name: 'Next.js', Icon: SiNextdotjs },
     { name: 'Python', Icon: FaPython },
+    { name: 'GraphQL', Icon: SiGraphql },
     { name: 'MongoDB', Icon: SiMongodb },
     { name: 'MySQL', Icon: SiMysql },
     { name: 'Redis', Icon: SiRedis },
+    { name: 'Azure', Icon: SiMicrosoftazure },
     { name: 'HTML & CSS', Icon: FaHtml5 },
     { name: 'WordPress', Icon: FaWordpress },
     { name: 'GitHub', Icon: FaGithub },
@@ -174,10 +176,14 @@ export const skillCategories = [
         items: [
             { name: 'Node.js', Icon: FaNodeJs },
             { name: 'Express.js', Icon: SiExpress },
-            { name: 'REST API Design' },
+            { name: 'RESTful API Design' },
+            { name: 'GraphQL APIs', Icon: SiGraphql },
+            { name: 'JSON' },
             { name: 'OAuth 2.0', Icon: FaLock },
+            { name: 'API Keys', Icon: TbKey },
             { name: 'Webhooks', Icon: TbWebhook },
             { name: '100+ Third-party App Integrations' },
+            { name: 'E-commerce Platform Integrations (Shopify, WooCommerce)' },
         ],
     },
     {
@@ -186,7 +192,7 @@ export const skillCategories = [
             { name: 'MongoDB', Icon: SiMongodb },
             { name: 'MySQL', Icon: SiMysql },
             { name: 'Redis', Icon: SiRedis },
-            { name: 'NoSQL' },
+            { name: 'SQL & NoSQL Databases' },
             { name: 'PostgreSQL Schema Design', Icon: SiPostgresql },
             { name: 'Query Optimisation' },
         ],
@@ -213,6 +219,7 @@ export const skillCategories = [
         category: 'Deployment & Cloud',
         items: [
             { name: 'Vercel', Icon: SiVercel },
+            { name: 'Azure', Icon: SiMicrosoftazure },
             { name: 'AWS', Icon: FaAws },
             { name: 'GCP', Icon: SiGooglecloud },
             { name: 'Build Pipelines' },
