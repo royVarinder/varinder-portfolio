@@ -11,8 +11,8 @@ import businessOptimaLogo from "./assets/businessOptimaLogo.png"
 import primefxlogo from "./assets/primeLogo.png"
 import profileImage from "./assets/profile2.jpg"
 import { FaReact, FaNodeJs, FaWordpress, FaGithub, FaBitbucket, FaBootstrap, FaHtml5, FaCss3Alt, FaAngular, FaVuejs, FaLinux, FaGitAlt, FaAws, FaDatabase, FaLock, FaPython } from "react-icons/fa"
-import { SiMongodb, SiMysql, SiPostman, SiJavascript, SiNextdotjs, SiChakraui, SiExpress, SiPostgresql, SiVercel, SiGooglecloud, SiRedis, SiGraphql, SiMicrosoftazure } from "react-icons/si"
-import { TbBrandReactNative, TbWebhook, TbKey } from "react-icons/tb"
+import { SiMongodb, SiMysql, SiPostman, SiJavascript, SiNextdotjs, SiChakraui, SiExpress, SiPostgresql, SiVercel, SiGooglecloud, SiRedis, SiGraphql } from "react-icons/si"
+import { TbBrandReactNative, TbWebhook, TbKey, TbBrandAzure } from "react-icons/tb"
 
 export const PROFILE_IMAGE = profileImage;
 
@@ -120,7 +120,7 @@ export const techStack = [
     { name: 'MongoDB', Icon: SiMongodb },
     { name: 'MySQL', Icon: SiMysql },
     { name: 'Redis', Icon: SiRedis },
-    { name: 'Azure', Icon: SiMicrosoftazure },
+    { name: 'Azure', Icon: TbBrandAzure },
     { name: 'HTML & CSS', Icon: FaHtml5 },
     { name: 'WordPress', Icon: FaWordpress },
     { name: 'GitHub', Icon: FaGithub },
@@ -219,7 +219,7 @@ export const skillCategories = [
         category: 'Deployment & Cloud',
         items: [
             { name: 'Vercel', Icon: SiVercel },
-            { name: 'Azure', Icon: SiMicrosoftazure },
+            { name: 'Azure', Icon: TbBrandAzure },
             { name: 'AWS', Icon: FaAws },
             { name: 'GCP', Icon: SiGooglecloud },
             { name: 'Build Pipelines' },
