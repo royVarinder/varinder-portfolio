@@ -10,6 +10,7 @@ import ourFairFieldLogo from "./assets/ourfairfieldLogo.png"
 import businessOptimaLogo from "./assets/businessOptimaLogo.png"
 import primefxlogo from "./assets/primeLogo.png"
 import profileImage from "./assets/profile2.jpg"
+import PrintBro from "./assets/printbro.png"
 import { FaReact, FaNodeJs, FaWordpress, FaGithub, FaBitbucket, FaBootstrap, FaHtml5, FaCss3Alt, FaAngular, FaVuejs, FaLinux, FaGitAlt, FaAws, FaDatabase, FaLock, FaPython } from "react-icons/fa"
 import { SiMongodb, SiMysql, SiPostman, SiJavascript, SiNextdotjs, SiChakraui, SiExpress, SiPostgresql, SiVercel, SiGooglecloud, SiRedis, SiGraphql } from "react-icons/si"
 import { TbBrandReactNative, TbWebhook, TbKey, TbBrandAzure } from "react-icons/tb"
@@ -21,6 +22,12 @@ export const SUMMARY = "Experienced Frontend / Full Stack Developer with 5+ year
 export const OBJECTIVE = "I'm currently looking to join a cross-functional team that values impactful software solutions, where I can grow into a leadership role while continuously learning.";
 
 export const projects = [
+       {
+        title: 'PrintBro',
+        // description: 'E-Commerce website for medicines',
+        image: PrintBro,
+        link: 'https://printbro.online/',
+    },
        {
         title: 'PRIMEFX',
         // description: 'E-Commerce website for medicines',
